@@ -14,8 +14,8 @@ public class LinkOpener extends JFrame
     public static void main(String[] args)
     {
         gitHub_Button = new JButton(); // MyCSUEB Button
-        gitHub_Button.setBounds(250, 125, 100, 25);
-        gitHub_Button.setText("MyCSUEB");
+        gitHub_Button.setBounds(250, 75, 100, 25);
+        gitHub_Button.setText("GitHub");
         gitHub_Button.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -23,7 +23,7 @@ public class LinkOpener extends JFrame
                 try
                 {
                     Desktop desktop = java.awt.Desktop.getDesktop();
-                    URI oURL = new URI("https://www.csueastbay.edu/mycsueb/");
+                    URI oURL = new URI("https://github.com/login");
                     desktop.browse(oURL);
                 }
                 catch (Exception r)
