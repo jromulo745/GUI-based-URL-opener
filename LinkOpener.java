@@ -7,12 +7,33 @@ import java.awt.Desktop;
 
 public class LinkOpener extends JFrame
 {
+    static JButton blackBoard_Button; // declare globally relative to "main" so actionPerformed() can access var
     static JButton gitHub_Button; // declare globally relative to "main" so actionPerformed() can access var
     static JButton linkedInButton; // declare globally relative to "main" so actionPerformed() can access var
     static JButton myCSUEB_Button; // declare globally relative to "main" so actionPerformed() can access var
     
     public static void main(String[] args)
     {
+        blackBoard_Button = new JButton(); // MyCSUEB Button
+        blackBoard_Button.setBounds(250, 50, 100, 25);
+        blackBoard_Button.setText("Blackboard");
+        blackBoard_Button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Desktop desktop = java.awt.Desktop.getDesktop();
+                    URI oURL = new URI("https://bb.csueastbay.edu/");
+                    desktop.browse(oURL);
+                }
+                catch (Exception r)
+                {
+                    r.printStackTrace();
+                }
+            }
+        });
+
         gitHub_Button = new JButton(); // MyCSUEB Button
         gitHub_Button.setBounds(250, 75, 100, 25);
         gitHub_Button.setText("GitHub");
@@ -77,6 +98,7 @@ public class LinkOpener extends JFrame
         frame.setTitle("Link Opener");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        frame.add(blackBoard_Button);
         frame.add(gitHub_Button);
         frame.add(linkedInButton);
         frame.add(myCSUEB_Button);
