@@ -5,14 +5,34 @@ import java.awt.event.ActionListener;
 import java.net.URI;
 import java.awt.Desktop;
 
-public class LinkOpener extends JFrame //implements ActionListener
+public class LinkOpener extends JFrame
 {
-
+    static JButton gitHub_Button; // declare globally relative to "main" so actionPerformed() can access var
     static JButton linkedInButton; // declare globally relative to "main" so actionPerformed() can access var
-    static JButton myCSUEB_Button;
+    static JButton myCSUEB_Button; // declare globally relative to "main" so actionPerformed() can access var
     
     public static void main(String[] args)
     {
+        gitHub_Button = new JButton(); // MyCSUEB Button
+        gitHub_Button.setBounds(250, 125, 100, 25);
+        gitHub_Button.setText("MyCSUEB");
+        gitHub_Button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Desktop desktop = java.awt.Desktop.getDesktop();
+                    URI oURL = new URI("https://www.csueastbay.edu/mycsueb/");
+                    desktop.browse(oURL);
+                }
+                catch (Exception r)
+                {
+                    r.printStackTrace();
+                }
+            }
+        });
+
         linkedInButton = new JButton(); // LinkedIn Button
         linkedInButton.setBounds(250, 100, 100, 25); // formula self-discovered: to place in middle: (frame width size / 2) - (button width / 2)
         linkedInButton.setText("LinkedIn");
@@ -57,6 +77,7 @@ public class LinkOpener extends JFrame //implements ActionListener
         frame.setTitle("Link Opener");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
+        frame.add(gitHub_Button);
         frame.add(linkedInButton);
         frame.add(myCSUEB_Button);
         frame.setSize(600, 400);
