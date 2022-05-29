@@ -25,7 +25,7 @@ public class LinkOpener extends JFrame
                 try
                 {
                     Desktop desktop = java.awt.Desktop.getDesktop();
-                    URI oURL = new URI("https://bb.csueastbay.edu/");
+                    URI oURL = new URI("https://developer.apple.com/");
                     desktop.browse(oURL);
                 }
                 catch (Exception r)
