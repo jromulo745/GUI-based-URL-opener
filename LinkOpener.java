@@ -11,6 +11,7 @@ public class LinkOpener extends JFrame
     static JButton canvasButton; // declare globally relative to "main" so actionPerformed() can access var
     static JButton blackBoard_Button; // declare globally relative to "main" so actionPerformed() can access var
     static JButton gitHub_Button; // declare globally relative to "main" so actionPerformed() can access var
+    static JButton javaScript_button; // declare globally relative to "main" so actionPerformed() can access var
     static JButton linkedInButton; // declare globally relative to "main" so actionPerformed() can access var
     static JButton myCSUEB_Button; // declare globally relative to "main" so actionPerformed() can access var
     
@@ -96,8 +97,28 @@ public class LinkOpener extends JFrame
             }
         });
 
+        javaScript_button = new JButton(); // MyCSUEB Button
+        javaScript_button.setBounds(250, 150, 100, 25);
+        javaScript_button.setText("JavaScript");
+        javaScript_button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Desktop desktop = java.awt.Desktop.getDesktop();
+                    URI oURL = new URI("https://www.wired.com/tag/javascript/");
+                    desktop.browse(oURL);
+                }
+                catch (Exception r)
+                {
+                    r.printStackTrace();
+                }
+            }
+        });
+
         linkedInButton = new JButton(); // LinkedIn Button
-        linkedInButton.setBounds(250, 150, 100, 25); // formula self-discovered: to place in middle: (frame width size / 2) - (button width / 2)
+        linkedInButton.setBounds(250, 175, 100, 25); // formula self-discovered: to place in middle: (frame width size / 2) - (button width / 2)
         linkedInButton.setText("LinkedIn");
         linkedInButton.addActionListener(new ActionListener()
         {
@@ -117,7 +138,7 @@ public class LinkOpener extends JFrame
         });
 
         myCSUEB_Button = new JButton(); // MyCSUEB Button
-        myCSUEB_Button.setBounds(250, 175, 100, 25);
+        myCSUEB_Button.setBounds(250, 200, 100, 25);
         myCSUEB_Button.setText("MyCSUEB");
         myCSUEB_Button.addActionListener(new ActionListener()
         {
@@ -144,6 +165,7 @@ public class LinkOpener extends JFrame
         frame.add(canvasButton);
         frame.add(blackBoard_Button);
         frame.add(gitHub_Button);
+        frame.add(javaScript_button);
         frame.add(linkedInButton);
         frame.add(myCSUEB_Button);
         frame.setSize(600, 400);
